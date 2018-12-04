@@ -1,0 +1,132 @@
+<div class="page">
+  <div class="row">
+    <div class="col-md-6">
+      <section class="panel panel-default">
+        <div class="panel-heading">
+          <strong>今日</strong>
+        </div>
+        <div class="panel-body">
+          <div accordion close-others="false">
+            <div accordion-group is-open="isopen.eventsOfToday">
+              <div accordion-heading>
+                <span>今日面试</span>
+                <i class="fa fa-user fa-lg"></i>
+                <span class="badge badge-info">{{counts.eventsOfToday}}</span>
+                <i class="pull-right glyphicon"
+                   ng-class="{'glyphicon-chevron-down': isopen.eventsOfToday, 'glyphicon-chevron-right': !isopen.eventsOfToday}"></i>
+              </div>
+              <div ng-repeat="event in eventsOfToday">
+                <a href="#/resumes/{{event.application}}" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="square-icon sm bg-orange"><i class="fa fa-user"></i></span>
+                                </span>
+
+                  <div class="media-body">
+                    <span class="text-muted block">{{event | eventTimeRange}}</span>
+                    <span class="block">{{event.name}}面试({{event.applyPosition}})</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div accordion-group has-permission="intOnboards" is-open="isopen.onboardsOfToday">
+              <div accordion-heading>
+                <span>今日入职</span>
+                <i class="fa fa-child fa-lg"></i>
+                <span class="badge badge-info">{{counts.onboardsOfToday}}</span>
+                <i class="pull-right glyphicon"
+                   ng-class="{'glyphicon-chevron-down': isopen.onboardsOfToday, 'glyphicon-chevron-right': !isopen.onboardsOfToday}"></i>
+              </div>
+              <div ng-repeat="onboard in onboardsOfToday ">
+                <a href="#/resumes/{{onboard.application}}" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="square-icon sm bg-success"><i class="fa fa-child fa-lg"></i></span>
+                                </span>
+
+                  <div class="media-body">
+                    <span class="text-muted block">{{onboard.name}}</span>
+                    <span class="block">{{onboard.applyPosition}}</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div accordion-group is-open="isopen.unreviewedOfDays">
+              <div accordion-heading>
+                <span>待评面试</span>
+                <i class="fa fa-pencil fa-lg"></i>
+                <span class="badge badge-info">{{counts.unreviewedOfDays}}</span>
+                <i class="pull-right glyphicon"
+                   ng-class="{'glyphicon-chevron-down': isopen.unreviewedOfDays, 'glyphicon-chevron-right': !isopen.unreviewedOfDays}"></i>
+              </div>
+              <div ng-repeat="unreviewed in unreviewedOfDays">
+                <a href="#/interviews/reviews/{{unreviewed._id}}" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="square-icon sm bg-warning"><i class="fa fa-pencil"></i></span>
+                                </span>
+
+                  <div class="media-body">
+                    <span class="text-muted block">{{unreviewed.events[0].startTime|shortDate}}</span>
+                    <span class="block">{{unreviewed.name}}应聘{{unreviewed.applyPosition}}</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-md-6">
+      <section class="panel panel-default">
+        <div class="panel-heading">
+          <strong>未来三天</strong>
+        </div>
+        <div class="panel-body">
+          <div accordion close-others="false">
+            <div accordion-group is-open="isopen.eventsOfNextDays">
+              <div accordion-heading>
+                <span>未来三天面试</span>
+                <i class="fa fa-user fa-lg"></i>
+                <span class="badge badge-info">{{counts.eventsOfNextDays}}</span>
+                <i class="pull-right glyphicon"
+                   ng-class="{'glyphicon-chevron-down': isopen.eventsOfNextDays, 'glyphicon-chevron-right': !isopen.eventsOfNextDays}"></i>
+              </div>
+              <div ng-repeat="event in eventsOfNextDays ">
+                <a href="#/resumes/{{event.application}}" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="square-icon sm bg-orange"><i class="fa fa-user"></i></span>
+                                </span>
+
+                  <div class="media-body">
+                    <span class="text-muted block">{{event | todayTimeRange}}</span>
+                    <span class="block">{{event.name}}面试({{event.applyPosition}})</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div accordion-group has-permission="intOnboards" is-open="isopen.onboardsOfNextDays">
+              <div accordion-heading>
+                <span>未来三天入职</span>
+                <i class="fa fa-child fa-lg"></i>
+                <span class="badge badge-info">{{counts.onboardsOfNextDays}}</span>
+                <i class="pull-right glyphicon"
+                   ng-class="{'glyphicon-chevron-down': isopen.onboardsOfNextDays, 'glyphicon-chevron-right': !isopen.onboardsOfNextDays}"></i>
+              </div>
+              <div ng-repeat="onboard in onboardsOfNextDays ">
+                <a href="#/resumes/{{onboard.application}}" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="square-icon sm bg-success"><i class="fa fa-child fa-lg"></i></span>
+                                </span>
+
+                  <div class="media-body">
+                    <span class="text-muted block">{{onboard.onboardDate | shortDate}}</span>
+                    <span class="block">{{onboard.name}}({{onboard.applyPosition}})</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

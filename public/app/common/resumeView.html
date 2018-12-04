@@ -1,0 +1,317 @@
+<div class="ui-tab-container">
+<tabset class="ui-tab" justified="true">
+<tab heading="简历">
+<div id="resumeDiv">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>个人信息</strong></div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tr>
+          <td>姓名</td>
+          <td>{{resume.name}}</td>
+          <td>性别</td>
+          <td>{{resume.gender | gender}}</td>
+          <td>出生年月</td>
+          <td>{{resume.birthday | yearAndMonth}}</td>
+          <td>应聘职位</td>
+          <td>{{resume.applyPosition}}</td>
+        </tr>
+        <tr>
+          <td>户口</td>
+          <td>{{resume.hukou}}</td>
+          <td>居住地</td>
+          <td>{{resume.residency}}</td>
+          <td>政治面貌</td>
+          <td>{{resume.politicalStatus | politicalStatus}}</td>
+          <td>婚姻状况</td>
+          <td>{{resume.civilState | civilState}}</td>
+        </tr>
+        <tr>
+          <td>手机</td>
+          <td>{{resume.mobile}}</td>
+          <td>邮箱</td>
+          <td>{{resume.email}}</td>
+          <td>工作年限</td>
+          <td>{{resume.yearsOfExperience | yearsOfExperience}}</td>
+          <td>渠道/应聘日期</td>
+          <td>{{resume.channel}} / {{resume.createdAt | shortDate}}应聘</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-default" ng-if="resume.careerObjective | isNotEmpty">
+  <div class="panel-heading">
+    <strong>职业目标</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tr>
+        <tr ng-if="resume.careerObjective.selfAssessment">
+          <td class="col-md-1">自我评价</td>
+          <td>{{resume.careerObjective.selfAssessment}}</td>
+        </tr>
+        <tr ng-if="resume.careerObjective.typeOfEmployment">
+          <td>工作性质</td>
+          <td>{{resume.careerObjective.typeOfEmployment | typeOfEmployment}}</td>
+        </tr>
+        <tr ng-if="resume.careerObjective.targetSalary">
+          <td>期望薪水</td>
+          <td>{{resume.careerObjective.targetSalary | targetSalary}}</td>
+        </tr>
+        <tr ng-if="resume.careerObjective.locations">
+          <td>工作地点</td>
+          <td>{{resume.careerObjective.locations.join(',')}}</td>
+        </tr>
+        <tr ng-if="resume.careerObjective.industry">
+          <td>行业</td>
+          <td>{{resume.careerObjective.industry.join(',')}}</td>
+        </tr>
+        <tr ng-if="resume.careerObjective.jobCategory">
+          <td>工作</td>
+          <td>{{resume.careerObjective.jobCategory.join(',')}}</td>
+        </tr>
+        <tr ng-if="resume.careerObjective.entryTime">
+          <td>上班时间</td>
+          <td>{{resume.careerObjective.entryTime | entryTime}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.workExperience | isNotEmpty">
+  <div class="panel-heading">
+    <strong>工作经历</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <tr ng-repeat-start="work in resume.workExperience">
+          <td>{{work.from | yearAndMonth}} -- {{work.to | yearAndMonth}}</td>
+          <td>{{work.company}}</td>
+          <td>行业:{{work.industry}}</td>
+          <td>{{work.department}}</td>
+          <td>{{work.jobTitle}}</td>
+        </tr>
+        <tr ng-if="work.jobDescription" ng-repeat-end>
+          <td colspan="5">{{work.jobDescription}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.projectExperience | isNotEmpty">
+  <div class="panel-heading">
+    <strong>项目经验</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tr ng-repeat-start="project in resume.projectExperience">
+          <td class="col-md-1">时间</td>
+          <td>{{project.from | yearAndMonth}} -- {{project.to | yearAndMonth}}</td>
+          <td class="col-md-1">项目名称</td>
+          <td>{{project.name}}</td>
+          <td class="col-md-1">项目职责</td>
+          <td>{{project.responsibility}}</td>
+        </tr>
+        <tr ng-if="project.softwareEnvironment || project.hardwareEnvironment || project.developmentTools">
+          <td>软件环境</td>
+          <td>{{project.softwareEnvironment}}</td>
+          <td>硬件环境</td>
+          <td>{{project.hardwareEnvironment}}</td>
+          <td>开发工具</td>
+          <td>{{project.developmentTools}}</td>
+        </tr>
+        <tr ng-if="project.description" ng-repeat-end>
+          <td>项目描述</td>
+          <td colspan="5">{{project.description}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.educationHistory | isNotEmpty">
+  <div class="panel-heading">
+    <strong>教育经历</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tr ng-repeat-start="education in resume.educationHistory">
+          <td>{{education.from | yearAndMonth}} -- {{education.to | yearAndMonth}}</td>
+          <td>{{education.school}}</td>
+          <td>{{education.major}}</td>
+          <td>{{education.degree | degree}}</td>
+        </tr>
+        <tr ng-if="education.description" ng-repeat-end>
+          <td>附加说明</td>
+          <td colspan="7">{{education.description}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.trainingHistory | isNotEmpty">
+  <div class="panel-heading">
+    <strong>培训</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tr ng-repeat-start="training in resume.trainingHistory">
+          <td>时间</td>
+          <td>{{training.from | yearAndMonth}} -- {{training.to | yearAndMonth}}</td>
+
+          <td>培训机构</td>
+          <td>{{training.institution}}</td>
+          <td>课程</td>
+          <td>{{training.course}}</td>
+        </tr>
+        <tr ng-if="training.location">
+          <td>地点</td>
+          <td>{{training.location}}</td>
+          <td>取得证书</td>
+          <td>{{training.certification}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr ng-if="training.description" ng-repeat-end>
+          <td>附加说明</td>
+          <td colspan="5">{{training.description}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.certifications | isNotEmpty">
+  <div class="panel-heading">
+    <strong>证书</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <tr ng-repeat="certification in resume.certifications">
+          <td>{{certification.date | yearAndMonth}}</td>
+          <td>{{certification.subject}}</td>
+          <td ng-show="certification.score">{{certification.score}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.languageSkills | isNotEmpty">
+  <div class="panel-heading">
+    <strong>语言能力</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <tr ng-repeat="skill in resume.languageSkills">
+          <td>{{skill.language | language}}</td>
+          <td ng-if="skill.level">{{skill.level | languageSkillLevel}}</td>
+          <td ng-if="skill.readingAndWriting">读写能力: {{skill.readingAndWriting | languageSkillLevel}}</td>
+          <td ng-if="skill.listeningAndSpeaking">听说能力: {{skill.listeningAndSpeaking | languageSkillLevel}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.inSchoolPractices | isNotEmpty">
+  <div class="panel-heading">
+    <strong>在校实习情况</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <tr ng-repeat="practice in resume.inSchoolPractices">
+          <td>{{practice.from | yearAndMonth}} -- {{practice.to | yearAndMonth}}</td>
+          <td>{{practice.content}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.inSchoolStudy | isNotEmpty">
+  <div class="panel-heading">
+    <strong>在校学习情况</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <tr ng-repeat="study in resume.inSchoolStudy">
+          <td>{{study}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="resume.languageCertificates | isNotEmpty">
+  <div class="panel-heading">
+    <strong>语言成绩</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered ">
+        <tr>
+          <td ng-show="resume.languageCertificates.english">英语能力</td>
+          <td ng-show="resume.languageCertificates.english">{{resume.languageCertificates.english | englishCertificate}}
+          </td>
+          <td ng-show="resume.languageCertificates.japanese">日语能力</td>
+          <td ng-show="resume.languageCertificates.japanese">{{resume.languageCertificates.japanese |
+            japaneseCertificate}}
+          </td>
+          <td ng-show="resume.languageCertificates.toefl">TOEFL</td>
+          <td ng-show="resume.languageCertificates.toefl">{{resume.languageCertificates.toefl}}</td>
+          <td ng-show="resume.languageCertificates.gre">GRE</td>
+          <td ng-show="resume.languageCertificates.gre">{{resume.languageCertificates.gre}}</td>
+          <td ng-show="resume.languageCertificates.gmat">GMAT</td>
+          <td ng-show="resume.languageCertificates.gmat">{{resume.languageCertificates.gmat}}</td>
+          <td ng-show="resume.languageCertificates.ielts">IELTS</td>
+          <td ng-show="resume.languageCertificates.ielts">{{resume.languageCertificates.ielts}}</td>
+          <td ng-show="resume.languageCertificates.toeic">TOEIC</td>
+          <td ng-show="resume.languageCertificates.toeic">{{resume.languageCertificates.toeic}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default" ng-if="resume.itSkills | isNotEmpty">
+  <div class="panel-heading">
+    <strong>IT能力</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <tr ng-repeat="skill in resume.itSkills">
+          <td>{{skill.skill}}</td>
+          <td>{{skill.experience}}月</td>
+          <td>{{skill.level | itSkillLevel}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default" ng-if="!resume.isFromMail">
+  <div class="panel-heading">
+    <strong>简历文件</strong>
+  </div>
+  <div class="panel-body">
+    <a href="/api/applications/{{resume._id}}/attachment" target="_blank">{{resume.resumeFile.name}}</a>
+  </div>
+</div>
+</div>
+</tab>
+<tab heading="原始简历" active="original" ng-if="resume.isFromMail">
+  <div class="center-block">
+    <iframe name="mail-frame" class="mail-frame" ng-src="{{mailHtml}}"></iframe>
+  </div>
+</tab>
+</tabset>
+</div>

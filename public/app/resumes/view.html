@@ -1,0 +1,31 @@
+<div class="page">
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <strong>{{resume.name}}</strong>
+    </div>
+    <div class="panel-body">
+      <div ng-include="'/app/common/resumeView.html'"></div>
+      <div class="panel panel-default" ng-show="interview">
+        <div class="panel-heading">
+          <strong>参与面试情况</strong>
+        </div>
+        <div class="panel-body">
+          <div ng-include="'/app/interviews/detail.html'"></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-md-offset-4">
+        <div class="callout callout-info " ng-show="resume.status==='archived'">
+          初审阶段未通过
+        </div>
+        <div class="callout callout-info " ng-show="resume.status==='duplicate'">
+          重复投递
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-primary" go-back>返回</button>
+      <button class="btn btn-success" ng-click="resetStatus()">恢复到{{newStatus}}列表中</button>
+      <button class="btn btn-info" ng-click="print()">打印原始简历</button>
+    </div>
+  </section>
+</div>

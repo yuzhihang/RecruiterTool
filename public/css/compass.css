@@ -1,0 +1,315 @@
+.top-header .top-nav .nav-left > li.nav-profile > a.dropdown-toggle {
+    margin-top: 3px;
+}
+
+.application-action-buttons .btn {
+    margin-bottom: 5px;
+    width: 80px;
+}
+
+.table-no-border > thead > tr > th,
+.table-no-border > tbody > tr > th,
+.table-no-border > tfoot > tr > th,
+.table-no-border > thead > tr > td,
+.table-no-border > tbody > tr > td,
+.table-no-border > tfoot > tr > td {
+    border-top: none;
+}
+
+.mail-frame {
+    width: 100%;
+    height: 800px;
+    border: none;
+}
+
+.resume-name {
+    padding-top: 15px;
+}
+
+.select-user-form-in-calendar {
+    margin-top: -50px;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212, 212, 212);
+    width: 100%;
+    height: auto;
+}
+
+.ngViewport.ng-scope {
+    height: auto !important;
+    overflow-y: hidden;
+}
+
+.ngTopPanel.ng-scope, .ngHeaderContainer {
+    width: auto !important;
+}
+
+.fc-header-title h2 {
+    font-size: 20px;
+}
+
+.fc-agenda-slots td div {
+    height: 30px;
+}
+
+.switch.switch-sm i {
+    padding-right: 20px;
+    border-radius: 20px;
+}
+
+.switch.switch-sm i:before {
+    width: 23px;
+    height: 23px;
+    border-radius: 23px;
+}
+
+.switch.switch-sm :checked + i {
+    padding-left: 20px;
+    padding-right: 0;
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #31c0be;
+    -moz-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #31c0be;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #31c0be;
+}
+
+.switch.switch-success.switch-sm :checked + i {
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #60cd9b;
+    -moz-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #60cd9b;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #60cd9b;
+}
+
+.switch.switch-info.switch-sm :checked + i {
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #66b5d7;
+    -moz-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #66b5d7;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #66b5d7;
+}
+
+.switch.switch-warning.switch-sm :checked + i {
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #eec95a;
+    -moz-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #eec95a;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #eec95a;
+}
+
+.switch.switch-danger.switch-sm :checked + i {
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #e87352;
+    -moz-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #e87352;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 30px #e87352;
+}
+
+span.ui-rating.size-h4 {
+    box-sizing: content-box;
+    background: #5130;
+}
+
+.search-form input, .search-form select, .search-form button {
+    height: 30px;
+}
+
+.tr-ng-grid button {
+    /*width: 80px;*/
+}
+
+.interview-list-buttons {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.interview-list-review-summary span i {
+    margin-right: 10px;
+}
+
+table.table.tr-ng-grid td, table.table.tr-ng-grid th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+
+.panel-heading .pull-right .btn {
+    margin-top: -4px;
+}
+
+.select2-choice .select2-arrow {
+    z-index: 1;
+}
+
+.toast-top-right {
+    top: 58px;
+    right: 12px;
+}
+
+.table tbody > tr > td.vert-align {
+    vertical-align: middle;
+}
+
+.table tbody > tr > td.vert-align form .form-group {
+    margin-bottom: 0;
+}
+
+.vert-align .form-control {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.vert-align label {
+    margin-top: 5px;
+}
+
+.vert-align button {
+    margin-top: 3px;
+}
+
+.page-chart .page-body {
+    padding: 0 0 0 0;
+}
+
+.page-chart .panel .panel-body .col-md-3 {
+    padding: 0 0 0 0;
+}
+
+g.nv-series {
+    margin-right: 20px;
+    width: 80px;
+}
+
+.angular-ui-tree-handle {
+    background: #f6f6f6;
+    border: 1px solid #dae2ea;
+    color: #767676;
+    padding: 0px 5px;
+    margin: 3px 0;
+    height: 35px;
+}
+
+.to-inline {
+    display: inline-block;
+}
+
+.angular-ui-tree-nodes .angular-ui-tree-nodes .angular-ui-tree-handle {
+    background: #fff;
+
+}
+
+.angular-ui-tree-nodes .angular-ui-tree-nodes {
+    padding-left: 35px;
+}
+
+.captcha-group .row div.col-md-4 {
+    padding: 0 0 0 15px;
+}
+
+.captcha-group .row div.col-md-1 {
+    padding: 0 0 0 0;
+}
+
+.captcha-group .row div.col-md-7 {
+    padding: 0 15px 0 0;
+}
+
+.captcha-group .row div.col-md-1 span {
+    margin-top: 15px;
+}
+
+.captcha-group .row div input, .captcha-group .row div img {
+    height: 46px;
+}
+
+.page-err .err-status h1 {
+    margin: 0 0 -45px;
+    color: #fafafa;
+    font-size: 80px
+}
+
+@media (min-width: 768px) {
+    .page-err .err-status h1 {
+        font-size: 150px
+    }
+}
+
+.ta-editor {
+    min-height: 300px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+svg {
+    height: auto !important;
+}
+
+.form-search .control-label {
+    padding-right: 0;
+}
+
+button.button-above-table {
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row.small-gutter {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.small-gutter [class*='col-']:not(:first-child),
+.small-gutter [class*='col-']:not(:last-child) {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#nav ul li {
+    padding-right: 5px;
+}
+
+.only-print {
+    display: none;
+}
+
+@media print {
+    .only-print {
+        display: block;
+    }
+
+    .table .table-bordered {
+        border-spacing: 0;
+        right: 0;
+        overflow: auto;
+        display: inline;
+    }
+
+    .ui-ribbon-container {
+        display: inline-block;
+        float: left;
+        margin: 5px;
+    }
+}
+
+.bootstrap-datetimepicker-widget td.hour {
+    height: 24px;
+    line-height: 24px;
+    width: 24px;
+}
+
+.timepicker-picker span.timepicker-hour, .timepicker-picker span.timepicker-minute {
+    margin-left: 20px;
+}
+
+.list-inline input[type="checkbox"], .ui-tree input[type="checkbox"] {
+    position: relative;
+    margin-left: 0;
+}
+
+.panel-default > .panel-heading .badge-info {
+    background-color: #66b5d7;
+}
